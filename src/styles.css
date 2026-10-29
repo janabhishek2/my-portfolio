@@ -1,0 +1,119 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -48px;
+  z-index: 1000;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--mantine-color-indigo-6);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: saturate(180%) blur(12px);
+  background: color-mix(in srgb, var(--mantine-color-body) 80%, transparent);
+  border-bottom: 1px solid var(--mantine-color-default-border);
+}
+
+.nav-link {
+  color: var(--mantine-color-dimmed);
+  font-size: var(--mantine-font-size-sm);
+  font-weight: 500;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: color 150ms ease, background 150ms ease;
+}
+
+.nav-link:hover,
+.nav-link[aria-current='true'] {
+  color: var(--mantine-color-text);
+  background: var(--mantine-color-default-hover);
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -40% -10% auto auto;
+  width: 640px;
+  height: 640px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--mantine-color-indigo-light) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--mantine-color-indigo-5), var(--mantine-color-cyan-5));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-eyebrow {
+  font-family: var(--mantine-font-family-monospace);
+  color: var(--mantine-color-indigo-5);
+  font-size: var(--mantine-font-size-sm);
+  letter-spacing: 0.04em;
+}
+
+.metric-card,
+.highlight-card {
+  height: 100%;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.metric-card:hover,
+.highlight-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--mantine-color-indigo-5);
+}
+
+.metric-value {
+  font-variant-numeric: tabular-nums;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
